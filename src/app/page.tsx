@@ -8,13 +8,15 @@ import PulsingCircle from "@/components/pulsing-circle"
 
 export default function EMOVLanding() {
   return (
-    <ShaderBackground>
-      <div className="min-h-screen flex flex-col relative">
-        <Header />
-        <HeroSection />
-        <Footer />
-        <PulsingCircle />
-      </div>
-    </ShaderBackground>
+    <>
+      <ShaderBackground>
+        <div className="min-h-screen min-h-[100dvh] flex flex-col relative z-10">
+          <Header />
+          <HeroSection />
+          <Footer />
+          <PulsingCircle />
+        </div>
+      </ShaderBackground>
+    </>
   )
 }
