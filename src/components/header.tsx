@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState, useEffect } from "react"
 
 export default function Header() {
@@ -20,7 +21,14 @@ export default function Header() {
     >
       {/* Logo */}
       <div className="flex items-center">
-        <img src="/logoemov.png" alt="EMOV" className="h-12 md:h-16 lg:h-20 w-auto select-none" />
+        <Image
+          src="/logoemov.png"
+          alt="EMOV"
+          width={200}
+          height={66}
+          className="h-12 md:h-16 lg:h-20 w-auto select-none"
+          priority
+        />
       </div>
 
     </header>

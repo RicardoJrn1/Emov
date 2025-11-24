@@ -51,13 +51,14 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, scaleY: 0, height: 0 }}
+            animate={{ opacity: 1, scaleY: 1, height: "auto" }}
+            exit={{ opacity: 0, scaleY: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
+            className="overflow-hidden origin-top"
           >
-            <p className="pb-6 text-white/70 leading-relaxed">{answer}</p>
+            {/* Adicionamos um padding interno para o texto não ser "esmagado" durante a animação */}
+            <p className="pt-2 pb-6 text-white/70 leading-relaxed">{answer}</p>
           </motion.div>
         )}
       </AnimatePresence>
