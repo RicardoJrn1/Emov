@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import { Gem, Shirt, Repeat, Headset } from "lucide-react" // Ícones para ilustrar
 
 const featuresData = [
@@ -46,7 +46,7 @@ const itemVariants = {
     y: 0,
     transition: { duration: 0.5, ease: "easeOut" },
   },
-}
+} satisfies Variants
 
 export default function Diferenciais() {
   return (
