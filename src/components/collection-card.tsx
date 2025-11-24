@@ -1,6 +1,6 @@
 "use client"
 
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion, type Variants } from "framer-motion"
 import Image from "next/image" 
 import { useEffect, useState } from "react"
 
@@ -18,7 +18,7 @@ const cardVariants = {
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" },
   },
-}
+} satisfies Variants
 
 export function CollectionCard({ collection }: { collection: Collection }) {
   const [isHovered, setIsHovered] = useState(false)
