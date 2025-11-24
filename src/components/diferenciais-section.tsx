@@ -30,15 +30,6 @@ const featuresData = [
   },
 ]
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-}
-
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -70,7 +61,6 @@ export default function Diferenciais() {
         </p>
 
         <motion.div
-          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
