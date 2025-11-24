@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion, Variants } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import Image from "next/image"
 import { CheckCircle, Users, Camera, Instagram } from "lucide-react"
 
@@ -21,7 +21,7 @@ const textContainerVariants: Variants = {
       delayChildren: 0.2,
     },
   },
-}
+} satisfies Variants
 
 const textItemVariants: Variants = {
   hidden: { opacity: 0, x: -20 },
@@ -30,7 +30,7 @@ const textItemVariants: Variants = {
     x: 0,
     transition: { duration: 0.5, ease: "easeOut" },
   },
-}
+} satisfies Variants
 
 export default function ProvaSocialVisual() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)

@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import { CollectionCard } from "./collection-card" // Importa o novo componente
 
 const collectionsData = [
@@ -52,7 +52,7 @@ const containerVariants = {
       staggerChildren: 0.2,
     },
   },
-}
+} satisfies Variants
 
 export default function Colecoes() {
   return (

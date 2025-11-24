@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence, Variants } from "framer-motion"
+import { motion, AnimatePresence, type Variants } from "framer-motion"
 import { Plus, Minus } from "lucide-react"
 
 const faqData = [
@@ -32,11 +32,10 @@ const faqData = [
   }
 ]
 
-const itemVariants: Variants = {
+const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-}
-
+} satisfies Variants
 function FaqItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -80,4 +79,3 @@ export default function FAQ() {
     </section>
   )
 }
-

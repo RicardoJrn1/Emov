@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, Variants } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import Image from "next/image"
 import { MessageCircle } from "lucide-react"
 import { WHATSAPP_LINK } from "./constants"
@@ -16,7 +16,7 @@ const containerVariants: Variants = {
       staggerChildren: 0.2,
     },
   },
-}
+} satisfies Variants
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -25,7 +25,7 @@ const itemVariants: Variants = {
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" },
   },
-}
+} satisfies Variants
 
 export default function ChamadaFinal() {
   return (
