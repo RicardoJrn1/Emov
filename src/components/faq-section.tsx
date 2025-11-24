@@ -48,7 +48,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
         <span className="text-lg font-medium text-white">{question}</span>
         {isOpen ? <Minus className="w-6 h-6 text-white/70" /> : <Plus className="w-6 h-6 text-white/70" />}
       </button>
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, scaleY: 0, height: 0 }}
