@@ -36,19 +36,25 @@ const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 } satisfies Variants
-function FaqItem({ question, answer }: { question: string; answer: string }) {
-  const [isOpen, setIsOpen] = useState(false)
 
+interface FaqItemProps {
+  question: string
+  answer: string
+  isOpen: boolean
+  onToggle: () => void
+}
+
+function FaqItem({ question, answer, isOpen, onToggle }: FaqItemProps) {
   return (
     <motion.div variants={itemVariants} className="border-b border-white/10">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
         className="flex justify-between items-center w-full py-6 text-left"
       >
         <span className="text-lg font-medium text-white">{question}</span>
         {isOpen ? <Minus className="w-6 h-6 text-white/70" /> : <Plus className="w-6 h-6 text-white/70" />}
       </button>
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, scaleY: 0, height: 0 }}
@@ -67,13 +73,21 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export default function FAQ() {
+  // Estado para controlar qual item está aberto. `null` significa que nenhum está aberto.
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const handleToggle = (index: number) => {
+    // Se o item clicado já estiver aberto, fecha ele. Senão, abre o novo item.
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
   return (
     <section id="faq" className="py-24 md:py-32 px-8 md:px-12 lg:px-16">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl lg:text-4xl font-extrabold text-white text-center mb-12">Dúvidas Frequentes</h2>
         <div className="space-y-4">
           {faqData.map((faq, index) => (
-            <FaqItem key={index} question={faq.question} answer={faq.answer} />
+            <FaqItem key={index} question={faq.question} answer={faq.answer} isOpen={openIndex === index} onToggle={() => handleToggle(index)} />
           ))}
         </div>
       </div>
