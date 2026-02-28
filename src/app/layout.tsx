@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
+import { Inter, Space_Grotesk } from "next/font/google"
 import Footer from "../components/footer"
 import Header from "../components/header"
 import ScrollGradient from "../components/scroll-gradient"
@@ -10,6 +10,13 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
+  display: "swap",
+})
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-space-grotesk",
   display: "swap",
 })
 
@@ -58,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${inter.variable} flex flex-col`}
+        className={`${inter.variable} ${spaceGrotesk.variable} flex flex-col`}
       >
         <ScrollGradient />
         <Header />

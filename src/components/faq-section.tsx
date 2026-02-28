@@ -93,7 +93,7 @@ export default function FAQ() {
     <section id="faq" className="py-24 md:py-32 px-8 md:px-12 lg:px-16">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <span className="inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
+          <span className="eyebrow inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
             FAQ
           </span>
           <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-6">

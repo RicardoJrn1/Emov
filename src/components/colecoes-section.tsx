@@ -40,7 +40,7 @@ export default function Colecoes() {
     <section id="colecoes" className="py-24 md:py-32 px-8 md:px-12 lg:px-16">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <span className="inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
+          <span className="eyebrow inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
             Coleções
           </span>
           <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-6">

@@ -6,7 +6,7 @@ import { MessageCircle } from "lucide-react"
 import { WHATSAPP_LINK } from "./constants"
 
 const containerVariants: Variants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
@@ -44,7 +44,7 @@ export default function ChamadaFinal() {
 
       <div className="relative max-w-4xl mx-auto text-center">
         <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}>
-          <motion.span variants={itemVariants} className="inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
+          <motion.span variants={itemVariants} className="eyebrow inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
             Chamada final
           </motion.span>
 
@@ -76,7 +76,7 @@ export default function ChamadaFinal() {
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-bold rounded-full shadow-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black font-bold rounded-full shadow-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:scale-105 hover:tracking-wider"
               >
                 Falar agora com o vendedor
                 <MessageCircle className="w-5 h-5" />

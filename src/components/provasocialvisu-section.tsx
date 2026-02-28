@@ -1,17 +1,17 @@
 "use client"
 
 import { useState } from "react"
-import { motion, type Variants } from "framer-motion"
+import { AnimatePresence, motion, type Variants } from "framer-motion"
 import Image from "next/image"
 import { CheckCircle, Users } from "lucide-react"
 import { SOCIAL_LINKS } from "./constants"
 
 const socialImages = [
-  { src: "/modelo-1.jpg", alt: "Homem vestindo look completo da EMOV em ambiente urbano." },
-  { src: "/modelo-2.webp", alt: "Detalhe de uma camiseta premium da EMOV." },
-  { src: "/modelo-3.jpg", alt: "Pessoa com moletom da EMOV em um café." },
-  { src: "/modelo-4.jpg", alt: "Look casual da EMOV para o dia a dia." },
-  { src: "/modelo-5.jpg", alt: "Pessoa com acessório da EMOV, como um boné, em destaque." },
+  { src: "/modelo-1.jpg", alt: "Homem vestindo look completo da EMOV em ambiente urbano.", title: "Look Urbano" },
+  { src: "/modelo-2.webp", alt: "Detalhe de uma camiseta premium da EMOV.", title: "Premium Básico" },
+  { src: "/modelo-3.jpg", alt: "Pessoa com moletom da EMOV em um café.", title: "Casual Coffee" },
+  { src: "/modelo-4.jpg", alt: "Look casual da EMOV para o dia a dia.", title: "Day to Day" },
+  { src: "/modelo-5.jpg", alt: "Pessoa com acessório da EMOV, como um boné, em destaque.", title: "Street Style" },
 ]
 
 const textContainerVariants: Variants = {
@@ -47,7 +47,7 @@ export default function ProvaSocialVisual() {
           viewport={{ once: true, amount: 0.3 }}
           className="text-center lg:text-left"
         >
-          <motion.span variants={textItemVariants} className="inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
+          <motion.span variants={textItemVariants} className="eyebrow inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
             Prova social
           </motion.span>
 
@@ -77,7 +77,7 @@ export default function ProvaSocialVisual() {
               href={SOCIAL_LINKS[0].href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-3 bg-white text-black font-semibold rounded-full shadow-lg transition-all duration-300 hover:bg-gray-700 hover:text-white hover:scale-105"
+              className="inline-flex items-center gap-3 px-8 py-3 bg-white text-black font-semibold rounded-full shadow-lg transition-all duration-300 hover:bg-gray-700 hover:text-white hover:scale-105 hover:tracking-wider"
             >
               Ver mais no Instagram
             </a>
@@ -89,13 +89,13 @@ export default function ProvaSocialVisual() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex h-[450px] w-full justify-center gap-2 md:gap-3"
+          className="flex h-[300px] md:h-[450px] w-full justify-center gap-2 md:gap-3"
           onMouseLeave={() => setExpandedIndex(null)}
         >
           {socialImages.map((image, index) => (
             <motion.div
               key={index}
-              className="relative h-full flex-1 cursor-pointer overflow-hidden rounded-2xl ring-1 ring-white/5 transition-shadow hover:shadow-2xl"
+              className={`relative h-full flex-1 cursor-pointer overflow-hidden rounded-2xl ring-1 ring-white/5 transition-shadow hover:shadow-2xl${index >= 3 ? " hidden md:block" : ""}`}
               initial={{ flex: 1 }}
               animate={{ flex: expandedIndex === index ? 4 : 1 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -108,6 +108,19 @@ export default function ProvaSocialVisual() {
                 className="object-cover"
                 sizes="(max-width: 768px) 50vw, 20vw"
               />
+              <AnimatePresence>
+                {expandedIndex === index && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4"
+                  >
+                    <span className="eyebrow text-sm text-white font-medium">{image.title}</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ))}
         </motion.div>

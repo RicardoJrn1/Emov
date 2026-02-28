@@ -30,7 +30,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {NAV_LINKS.filter((link) => link.href !== "#contato").map(({ href, label }) => (
                 <li key={href}>
-                  <SmoothLink href={href} className="text-sm text-white/70 hover:text-white transition-colors duration-200">
+                  <SmoothLink href={href} className="relative text-sm text-white/70 hover:text-white transition-colors duration-200 after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full">
                     {label}
                   </SmoothLink>
                 </li>
@@ -66,7 +66,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="flex items-center justify-center w-9 h-9 rounded-full bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition-all duration-200"
+                    className="flex items-center justify-center w-9 h-9 rounded-full bg-white/5 text-white/70 hover:bg-white/10 hover:text-white hover:scale-110 transition-all duration-200"
                   >
                     <Icon size={16} aria-hidden="true" />
                   </a>
@@ -77,7 +77,8 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-10 pt-6 border-t border-white/5 text-center text-xs text-white/40">
+        <div className="mt-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="pt-6 text-center text-xs text-white/40">
           <p>&copy; {currentYear} EMOV. Todos os direitos reservados.</p>
         </div>
       </div>

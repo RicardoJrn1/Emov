@@ -37,7 +37,7 @@ export default function HeroSection() {
       >
         <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
           {/* Eyebrow text */}
-          <span className="inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
+          <span className="eyebrow inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
             Streetwear masculino
           </span>
 
@@ -64,7 +64,7 @@ export default function HeroSection() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgba(255,255,255,0.3)" }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white text-black font-semibold rounded-full shadow-lg transition-all duration-300 inline-flex items-center gap-3 text-base"
+              className="px-8 py-4 bg-white text-black font-semibold rounded-full shadow-lg transition-all duration-300 hover:tracking-wider inline-flex items-center gap-3 text-base"
             >
               Conhecer a EMOV agora
               <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>

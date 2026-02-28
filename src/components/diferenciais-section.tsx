@@ -53,7 +53,7 @@ export default function Diferenciais() {
     <section id="diferenciais" className="py-24 md:py-32 px-8 md:px-12 lg:px-16">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <span className="inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
+          <span className="eyebrow inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
             Diferenciais
           </span>
           <motion.h2

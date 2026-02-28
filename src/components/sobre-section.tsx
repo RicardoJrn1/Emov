@@ -9,7 +9,7 @@ export default function Sobre() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
         {/* Coluna da Imagem */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -26,13 +26,13 @@ export default function Sobre() {
 
         {/* Coluna do Texto */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center md:text-left"
         >
-          <span className="inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
+          <span className="eyebrow inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
             Sobre a EMOV
           </span>
 

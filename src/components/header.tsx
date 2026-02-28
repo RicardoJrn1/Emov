@@ -32,7 +32,7 @@ export default function Header() {
           : "bg-transparent backdrop-blur-none backdrop-saturate-100 shadow-none border-transparent"
       }`}
     >
-      <div className="relative z-10 flex items-center justify-between px-6 md:px-8 py-4 md:py-5">
+      <div className={`relative z-10 flex items-center justify-between px-6 md:px-8 transition-all duration-500 ${scrolled ? "py-2 md:py-3" : "py-4 md:py-5"}`}>
         <SmoothLink href="#" onClick={() => setMenuOpen(false)}>
           <Image
             src="/logoemov.png"
@@ -49,7 +49,7 @@ export default function Header() {
             <SmoothLink
               key={href}
               href={href}
-              className="text-sm text-white/70 hover:text-white transition-colors duration-300"
+              className="relative text-sm text-white/70 hover:text-white transition-colors duration-300 after:absolute after:bottom-[-4px] after:left-1/2 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 after:-translate-x-1/2 hover:after:w-full"
             >
               {label}
             </SmoothLink>
@@ -58,7 +58,7 @@ export default function Header() {
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 px-5 py-2 text-sm font-semibold text-black bg-white rounded-full hover:bg-white/90 transition-colors duration-300"
+            className="ml-2 px-5 py-2 text-sm font-semibold border border-white/60 text-white bg-transparent rounded-full hover:bg-white hover:text-black transition-all duration-300"
           >
             Falar conosco
           </a>
