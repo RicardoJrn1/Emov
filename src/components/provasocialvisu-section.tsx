@@ -95,7 +95,7 @@ export default function ProvaSocialVisual() {
           {socialImages.map((image, index) => (
             <motion.div
               key={index}
-              className={`relative h-full flex-1 cursor-pointer overflow-hidden rounded-2xl ring-1 ring-white/5 transition-shadow hover:shadow-2xl${index >= 3 ? " hidden md:block" : ""}`}
+              className="relative h-full flex-1 cursor-pointer overflow-hidden rounded-2xl ring-1 ring-white/5 transition-shadow hover:shadow-2xl"
               initial={{ flex: 1 }}
               animate={{ flex: expandedIndex === index ? 4 : 1 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

@@ -6,7 +6,7 @@ import { WHATSAPP_LINK } from "./constants"
 
 export default function HeroSection() {
   return (
-    <section className="relative flex items-center justify-center md:justify-start min-h-screen overflow-hidden px-8 md:px-12 lg:px-16 mt-20 md:mt-14">
+    <section className="relative flex items-center justify-center md:justify-start min-h-screen overflow-hidden px-8 md:px-12 lg:px-16 mt-0 md:mt-14">
       {/* Imagem de fundo otimizada com Next/Image */}
       <Image
         src="/hero.png"
@@ -33,7 +33,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-6xl w-full z-10 pt-28 pb-20 md:py-0"
+        className="max-w-6xl w-full z-10 pt-16 pb-20 md:py-0"
       >
         <div className="max-w-2xl text-center md:text-left mx-auto md:mx-0">
           {/* Eyebrow text */}

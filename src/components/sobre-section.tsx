@@ -13,7 +13,7 @@ export default function Sobre() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-full h-80 md:h-[500px] rounded-2xl shadow-2xl overflow-hidden"
+          className="relative w-full h-80 md:h-[500px] rounded-2xl shadow-2xl overflow-hidden order-2 md:order-1"
         >
           <Image
             src="/emov-ambiente.jpeg"
@@ -30,7 +30,7 @@ export default function Sobre() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center md:text-left"
+          className="text-center md:text-left order-1 md:order-2"
         >
           <span className="eyebrow inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
             Sobre a EMOV

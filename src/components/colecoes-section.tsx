@@ -21,8 +21,8 @@ const collectionsData = [
     images: ["/moletom-1.jpg", "/moletom-2.jpg", "/moletom-3.webp"],
   },
   {
-    name: "Acessórios",
-    description: "Os detalhes que completam o look. Bonés, gorros e mais.",
+    name: "Calçados",
+    description: "Tênis que completam o look com atitude e conforto.",
     images: ["/acessorio-1.jpg", "/acessorio-2.jpg", "/acessorio-3.jpg"],
   },
 ]
@@ -56,7 +56,7 @@ export default function Colecoes() {
           {/* Card destaque (esquerda) */}
           <motion.div
             layout
-            className="relative flex-1 md:flex-[2] min-h-[360px] md:min-h-0 overflow-hidden rounded-2xl group ring-1 ring-white/5"
+            className="relative md:flex-[2] min-h-[320px] md:min-h-0 h-auto md:h-full overflow-hidden rounded-2xl group ring-1 ring-white/5"
           >
             {/* Background com glow sutil */}
             <div className="absolute inset-0 -z-10 bg-neutral-900" />
@@ -81,7 +81,7 @@ export default function Colecoes() {
                     transition: { staggerChildren: 0.15, delayChildren: 0.1 },
                   },
                 }}
-                className="absolute inset-0 flex items-center justify-center gap-2 px-4 pb-28 pt-4"
+                className="absolute inset-0 flex items-center justify-center gap-2 px-2 md:px-4 pb-24 md:pb-28 pt-2 md:pt-4"
               >
                 {active.images.map((img, i) => (
                   <motion.div
@@ -90,13 +90,13 @@ export default function Colecoes() {
                       hidden: { opacity: 0, y: 20 },
                       visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
                     }}
-                    className="relative flex-1 h-full overflow-hidden rounded-xl cursor-pointer"
+                    className="relative flex-1 aspect-[3/4] max-h-full overflow-hidden rounded-xl cursor-pointer bg-neutral-800/50 ring-1 ring-white/5"
                   >
                     <Image
                       src={img}
                       alt={`${active.name} ${i + 1}`}
                       fill
-                      className="object-contain transition-transform duration-500 hover:scale-110"
+                      className="object-cover transition-transform duration-500 hover:scale-105"
                       sizes="(max-width: 768px) 33vw, 20vw"
                     />
                   </motion.div>
@@ -114,7 +114,7 @@ export default function Colecoes() {
           </motion.div>
 
           {/* 3 cards empilhados (direita) */}
-          <div className="flex flex-row md:flex-col gap-3 md:gap-4 md:w-[160px]">
+          <div className="grid grid-cols-3 md:flex md:flex-col gap-3 md:gap-4 md:w-[160px]">
             {others.map((collection) => {
               const globalIndex = collectionsData.indexOf(collection)
 
@@ -124,8 +124,8 @@ export default function Colecoes() {
                   layout
                   onClick={() => handleSelect(globalIndex)}
                   className="
-                  relative aspect-square overflow-hidden rounded-2xl cursor-pointer group
-                  bg-neutral-900 ring-1 ring-white/5
+                  relative h-32 md:h-auto md:aspect-square overflow-hidden rounded-2xl cursor-pointer group
+                  bg-neutral-900 ring-1 ring-white/5 active:ring-white/20
                   transition-[transform,box-shadow] duration-300
                   hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/30
                 "
@@ -139,7 +139,7 @@ export default function Colecoes() {
                     className="
             object-cover object-center
             transition-transform duration-500 ease-out
-            group-hover:scale-110
+            group-hover:scale-105
           "
                     sizes="(max-width: 768px) 33vw, 25vw"
                   />
