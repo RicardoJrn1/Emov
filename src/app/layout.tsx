@@ -35,6 +35,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  icons: {
+    icon: "/logo-guia.png",
+  },
   robots: {
     index: true,
     follow: true,
