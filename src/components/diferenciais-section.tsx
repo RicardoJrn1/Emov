@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, type Variants } from "framer-motion"
-import { Gem, Shirt, Repeat, Headset } from "lucide-react" // Ícones para ilustrar
+import { Gem, Shirt, Repeat, Headset } from "lucide-react"
 
 const featuresData = [
   {
@@ -30,6 +30,15 @@ const featuresData = [
   },
 ]
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+} satisfies Variants
+
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -42,39 +51,42 @@ const itemVariants = {
 export default function Diferenciais() {
   return (
     <section id="diferenciais" className="py-24 md:py-32 px-8 md:px-12 lg:px-16">
-      <div className="max-w-6xl mx-auto text-center">
-        <motion.h2
-          className="text-4xl lg:text-5xl font-extrabold mb-6 bg-gradient-to-r from-black via-white to-black bg-clip-text text-transparent bg-[200%_auto]"
-          animate={{
-            backgroundPosition: ["100% 50%", "-100% 50%"],
-          }}
-          transition={{
-            duration: 5,
-            ease: "linear",
-            repeat: Infinity,
-          }}
-        >
-          A diferença está nos detalhes
-        </motion.h2>
-        <p className="text-lg lg:text-xl text-white/80 mb-12 leading-relaxed max-w-3xl mx-auto">
-          A EMOV se tornou referência por unir estilo, qualidade e uma curadoria moderna. Aqui, você encontra peças que elevam o visual sem complicação — roupas feitas para durar e marcar presença.
-        </p>
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="inline-block text-xs uppercase tracking-[0.2em] text-white/50 mb-4">
+            Diferenciais
+          </span>
+          <motion.h2
+            className="text-4xl lg:text-5xl font-extrabold mb-6 bg-gradient-to-r from-neutral-500 via-white to-neutral-500 bg-[length:200%_auto] bg-clip-text text-transparent"
+            animate={{ backgroundPosition: ["100% 50%", "-100% 50%"] }}
+            transition={{ duration: 4, ease: "linear", repeat: Infinity }}
+          >
+            A diferença está nos detalhes
+          </motion.h2>
+          <div className="w-12 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent mx-auto mb-6" />
+          <p className="text-lg lg:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+            Estilo, qualidade e curadoria moderna. Peças que elevam o visual sem complicação.
+          </p>
+        </div>
 
         <motion.div
+          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 text-left"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
           {featuresData.map((feature) => (
             <motion.div
               key={feature.title}
               variants={itemVariants}
-              className="bg-white/5 border border-white/10 rounded-lg p-6"
+              className="group rounded-2xl p-6 md:p-8 bg-neutral-900 ring-1 ring-white/5 transition-all duration-300 hover:ring-white/10 text-left"
             >
-              <feature.icon className="w-10 h-10 text-white mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-              <p className="text-white/70">{feature.description}</p>
+              <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-white/10">
+                <feature.icon className="w-6 h-6 text-white/70 transition-colors duration-300 group-hover:text-white" />
+              </div>
+              <h3 className="text-lg md:text-xl font-bold text-white mb-2">{feature.title}</h3>
+              <p className="text-sm md:text-base text-white/50 leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>

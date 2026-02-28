@@ -9,36 +9,28 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative z-10 pt-8 px-6 md:px-8 pb-8">
-
-      {/* LINHA DO TOPO */}
-      <div
-        className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
-        aria-hidden="true"
-      />
-
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {/* Coluna 1: Logo e Descrição */}
+    <footer className="relative z-10 pt-12 pb-8 px-8 md:px-12 lg:px-16">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
+          {/* Logo */}
           <div className="flex flex-col items-center sm:items-start">
-            <h3 className="font-semibold text-white mb-4">EMOV</h3>
             <Image
               src="/logoemov.png"
               alt="EMOV Logo"
               width={160}
               height={53}
-              className="h-16 w-auto mx-auto sm:mx-0 select-none"
+              className="h-14 w-auto mx-auto sm:mx-0 select-none"
               loading="lazy"
             />
           </div>
 
-          {/* Coluna 2: Navegação */}
+          {/* Navegação */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Navegação</h3>
+            <h3 className="text-xs uppercase tracking-[0.15em] text-white/40 mb-4">Navegação</h3>
             <ul className="space-y-2">
               {NAV_LINKS.filter((link) => link.href !== "#contato").map(({ href, label }) => (
                 <li key={href}>
-                  <SmoothLink href={`${href}`} className="text-sm text-white/80 hover:text-red-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500 rounded">
+                  <SmoothLink href={href} className="text-sm text-white/70 hover:text-white transition-colors duration-200">
                     {label}
                   </SmoothLink>
                 </li>
@@ -46,31 +38,37 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Coluna 3: Contato */}
+          {/* Contato */}
           <div id="contato">
-            <h3 className="font-semibold text-white mb-4">Contato</h3>
-            <address className="space-y-2 not-italic text-sm text-white/80">
+            <h3 className="text-xs uppercase tracking-[0.15em] text-white/40 mb-4">Contato</h3>
+            <address className="space-y-2 not-italic text-sm text-white/70">
               <p className="flex items-center justify-center sm:justify-start gap-2">
-                <FaMapMarkerAlt size={12} aria-hidden="true" />
+                <FaMapMarkerAlt size={12} className="text-white/40 flex-shrink-0" aria-hidden="true" />
                 <span>{CONTACT_INFO.address}</span>
               </p>
               <p className="flex items-center justify-center sm:justify-start gap-2">
-                <FaPhoneAlt size={12} aria-hidden="true" />
-                <a href={`tel:${CONTACT_INFO.phone.replace(/\D/g, "")}`} className="hover:text-red-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500 rounded">
+                <FaPhoneAlt size={12} className="text-white/40 flex-shrink-0" aria-hidden="true" />
+                <a href={`tel:${CONTACT_INFO.phone.replace(/\D/g, "")}`} className="hover:text-white transition-colors duration-200">
                   {CONTACT_INFO.phone}
                 </a>
               </p>
             </address>
           </div>
 
-          {/* Coluna 4: Siga-nos */}
+          {/* Redes sociais */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Siga-nos</h3>
-            <ul className="flex items-center justify-center sm:justify-start gap-4" aria-label="Redes sociais">
-              {SOCIAL_LINKS.map(({ href, icon: Icon, label, hoverColor }) => (
+            <h3 className="text-xs uppercase tracking-[0.15em] text-white/40 mb-4">Siga-nos</h3>
+            <ul className="flex items-center justify-center sm:justify-start gap-3" aria-label="Redes sociais">
+              {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
                 <li key={href}>
-                  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className={`text-2xl text-white/90 ${hoverColor} transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500 rounded`}>
-                    <Icon aria-hidden="true" />
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="flex items-center justify-center w-9 h-9 rounded-full bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition-all duration-200"
+                  >
+                    <Icon size={16} aria-hidden="true" />
                   </a>
                 </li>
               ))}
@@ -78,8 +76,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Direitos Autorais */}
-        <div className="mt-8 md:mt-12 border-t border-white/20 pt-6 text-center text-xs text-white/60">
+        {/* Copyright */}
+        <div className="mt-10 pt-6 border-t border-white/5 text-center text-xs text-white/40">
           <p>&copy; {currentYear} EMOV. Todos os direitos reservados.</p>
         </div>
       </div>

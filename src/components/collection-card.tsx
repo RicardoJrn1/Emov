@@ -1,18 +1,17 @@
 "use client"
 
 import { AnimatePresence, motion, type Variants } from "framer-motion"
-import Image from "next/image" 
+import Image from "next/image"
 import { useEffect, useState } from "react"
 
-// 1. Tipagem para os dados da coleção
-type Collection = {
+export type Collection = {
   name: string
   description: string
   images: string[]
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
@@ -25,43 +24,55 @@ export function CollectionCard({ collection }: { collection: Collection }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   useEffect(() => {
-    let interval: NodeJS.Timeout
+    if (!isHovered || collection.images.length <= 1) return
 
-    if (isHovered && collection.images.length > 1) {
-      interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % collection.images.length)
-      }, 2000) // Troca a imagem a cada 2 segundos
-    }
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % collection.images.length)
+    }, 2000)
 
-    return () => {
-      clearInterval(interval)
-      setCurrentImageIndex(0) // Reseta para a primeira imagem ao sair do hover
-    }
+    return () => clearInterval(interval)
   }, [isHovered, collection.images.length])
 
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+    setCurrentImageIndex(0)
+  }
+
   return (
-    <motion.div variants={cardVariants} className="h-full">
-      <div
-        className="group relative flex h-full flex-col rounded-lg border border-white/10 bg-white/5 p-6 text-left shadow-lg transition-all duration-300 hover:border-white/20 hover:shadow-xl hover:scale-105"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div className="relative mb-6 h-48 w-full overflow-hidden rounded-md">
-          <AnimatePresence initial={false}>
-            <motion.div
-              key={currentImageIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-              className="absolute inset-0"
-            >
-              <Image src={collection.images[currentImageIndex]} alt={`Peça da coleção de ${collection.name}`} fill style={{ objectFit: "cover", objectPosition: "center top" }} className="transition-transform duration-300 group-hover:scale-110" />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-        <h3 className="mb-2 text-xl font-bold text-white">{collection.name}</h3>
-        <p className="flex-grow text-white/70">{collection.description}</p>
+    <motion.div
+      variants={cardVariants}
+      className="group flex flex-col overflow-hidden rounded-2xl cursor-pointer border border-white/5 bg-neutral-900 transition-colors duration-300 hover:border-white/10"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Área da imagem */}
+      <div className="relative h-[300px] md:h-[360px] overflow-hidden">
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={collection.images[currentImageIndex]}
+              alt={`Peça da coleção de ${collection.name}`}
+              fill
+              className="object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105 p-6"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </motion.div>
+        </AnimatePresence>
+        {/* Fundo sutil atrás do produto */}
+        <div className="absolute inset-0 bg-neutral-800" />
+      </div>
+
+      {/* Texto */}
+      <div className="p-5">
+        <h3 className="text-lg md:text-xl font-bold text-white mb-1">{collection.name}</h3>
+        <p className="text-sm text-white/50 leading-relaxed">{collection.description}</p>
       </div>
     </motion.div>
   )
