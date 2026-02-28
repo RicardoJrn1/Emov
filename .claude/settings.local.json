@@ -6,7 +6,8 @@
       "Bash(npm uninstall:*)",
       "Bash(rm:*)",
       "Bash(npm run:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(npm install:*)"
     ]
   }
 }
