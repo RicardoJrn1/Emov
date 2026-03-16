@@ -3,6 +3,7 @@ import Colecoes from "@/components/colecoes-section"
 import Diferenciais from "@/components/diferenciais-section"
 import FAQ from "@/components/faq-section"
 import HeroSection from "@/components/hero-section"
+import Marcas from "@/components/marcas"
 import ProvaSocial from "@/components/provasocial-section"
 import ProvaSocialVisual from "@/components/provasocialvisu-section"
 import Sobre from "@/components/sobre-section"
@@ -19,6 +20,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <Marcas />
       <Divider />
       <ProvaSocial />
       <Divider />

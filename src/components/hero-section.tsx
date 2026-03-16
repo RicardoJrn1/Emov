@@ -7,9 +7,9 @@ import { WHATSAPP_LINK } from "./constants"
 export default function HeroSection() {
   return (
     <section className="relative flex items-center justify-center md:justify-start min-h-screen overflow-hidden px-8 md:px-12 lg:px-16 mt-0 md:mt-14">
-      {/* Imagem de fundo otimizada com Next/Image */}
+      {/* Imagem de fundo - Desktop */}
       <Image
-        src="/hero.png"
+        src="/hero-1.jpeg"
         alt="Modelo vestindo roupas da EMOV em um ambiente urbano estiloso"
         fill
         priority
@@ -21,11 +21,17 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Glow sutil no mobile */}
-      <div
-        className="absolute inset-0 md:hidden pointer-events-none"
+      {/* Imagem de fundo - Mobile (otimizada) */}
+      <Image
+        src="/hero-1.jpeg"
+        alt="Modelo vestindo roupas da EMOV em um ambiente urbano estiloso"
+        fill
+        priority
+        className="absolute inset-0 object-cover object-top opacity-30 md:hidden"
+        sizes="100vw"
         style={{
-          background: "radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0.04) 0%, transparent 70%)",
+          WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
+          maskImage: "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
         }}
       />
 
@@ -72,6 +78,35 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Fitas de polícia animadas na parte inferior */}
+      <div className="absolute bottom-36 md:bottom-20 left-0 right-0 z-[5] rotate-6 md:rotate-5 scale-x-110">
+        <div className="tape-wrapper">
+          <div className="tape-track">
+            <span className="tape-content">
+              {Array.from({ length: 20 }).map((_, i) => (
+                <span key={i} className="tape-item">
+                  DO CASUAL AO STREET!
+                </span>
+              ))}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-28 md:bottom-20 left-0 right-0 z-[5] -rotate-2 scale-x-110">
+        <div className="tape-wrapper">
+          <div className="tape-track">
+            <span className="tape-content tape-content-reverse">
+              {Array.from({ length: 20 }).map((_, i) => (
+                <span key={i} className="tape-item">
+                  A LOJA COM MAIOR VARIEDADE MASCULINA DA REGIÃO!
+                </span>
+              ))}
+            </span>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }
