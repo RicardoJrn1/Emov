@@ -74,6 +74,10 @@ body {
   animation: tape-scroll-reverse 80s linear infinite;
 }
 
+.tape-content-slow {
+  animation: tape-scroll 60s linear infinite;
+}
+
 .tape-item {
   display: inline-block;
   padding: 12px 18px;

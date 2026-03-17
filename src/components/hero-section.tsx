@@ -83,7 +83,7 @@ export default function HeroSection() {
       <div className="absolute bottom-36 md:bottom-20 left-0 right-0 z-[5] rotate-6 md:rotate-5 scale-x-110">
         <div className="tape-wrapper">
           <div className="tape-track">
-            <span className="tape-content">
+            <span className="tape-content tape-content-reverse">
               {Array.from({ length: 20 }).map((_, i) => (
                 <span key={i} className="tape-item">
                   DO CASUAL AO STREET!
@@ -97,7 +97,7 @@ export default function HeroSection() {
       <div className="absolute bottom-28 md:bottom-20 left-0 right-0 z-[5] -rotate-2 scale-x-110">
         <div className="tape-wrapper">
           <div className="tape-track">
-            <span className="tape-content tape-content-reverse">
+            <span className="tape-content tape-content-slow">
               {Array.from({ length: 20 }).map((_, i) => (
                 <span key={i} className="tape-item">
                   A LOJA COM MAIOR VARIEDADE MASCULINA DA REGIÃO!
